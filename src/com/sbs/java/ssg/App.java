@@ -11,10 +11,10 @@ public class App {
 		System.out.println("== 프로그램 시작 ==");
 
 		Scanner sc = new Scanner(System.in);
-		
+
 		MemberController memberController = new MemberController(sc);
 		ArticleController articleController = new ArticleController(sc);
-		
+
 		articleController.makeTestData();
 		memberController.makeTestData();
 
@@ -30,25 +30,25 @@ public class App {
 			if (command.equals("system exit")) {
 				break;
 			}
-			
+
 			String[] commandBits = command.split(" "); // article detail
-			
-			if ( commandBits.length == 1 ) {
+
+			if (commandBits.length == 1) {
 				System.out.println("존재하지 않는 명령어 입니다.");
 				continue;
 			}
-			
-			String controllerName = commandBits[0]; // article 
-			String actionMethodName = commandBits[1]; // detail 
-			
+
+			String controllerName = commandBits[0]; // article
+			String actionMethodName = commandBits[1]; // detail
+
 			Controller controller = null;
-			
-			if ( controllerName.equals("article") ) {
+
+			if (controllerName.equals("article")) {
 				controller = articleController;
-			} else if ( controllerName.equals("member") ) {
+			} else if (controllerName.equals("member")) {
 				controller = memberController;
 			}
-			
+
 			controller.doAction(command, actionMethodName);
 		}
 
