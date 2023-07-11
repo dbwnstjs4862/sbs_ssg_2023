@@ -25,4 +25,12 @@ public class ArticleService {
 		articleDao.remove(foundArticle);
 	}
 
+	public void write(Article article) {
+		articleDao.write(article);
+	}
+
+	public List<Article> getForPrintArticles() {
+		return articleDao.getForPrintArticles(null);
+	}
+
 }
